@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+  labels: 
+    app: wordpress-app
+    tier: frontend
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: K8
+        image: rajesh003/wp1
+        ports:
+        - containerPort: 80
